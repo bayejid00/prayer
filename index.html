@@ -243,7 +243,8 @@
             var prayerStatusData = JSON.parse(localStorage.getItem('prayerStatusData')) || [];
 
             var prayers = Object.entries(prayerStatusData).sort(function (a, b) {
-                return new Date(a[0]) - new Date(b[0]);
+                // return new Date(a[0]) - new Date(b[0]);
+                return new Date(b[0]) - new Date(a[0]);
             });
 
             var tableBody = document.getElementById('prayerTableBody');
