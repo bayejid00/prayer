@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="prayer-icon.png">
     <title>Prayer Status</title>
     <style>
-        html,body {
+        HTML, body {
             padding: 0;
             margin: 0;
         }       
@@ -161,7 +161,7 @@
     <div class="container">
         <img class="logo" src="prayer-icon.png
         " alt="Logo">
-        <h1 class="title">Prayer Status <button type="button" class="btn btn-secondary" onclick="toggleTable()">Show
+        <h1 class="title">Prayer Status <button type="button" id="show_all_btn" class="btn btn-secondary" onclick="toggleTable()">Show
                 All</button></h1>
         <div class="prayerTable-wrapper">
             <table id="prayerTable" style="display: none;">
@@ -238,7 +238,7 @@
     </div>
 
     <script>
-        // Function to retrieve data from local storage and display in table
+        // Function to retrieve data from local storage and display in the table.
         function showAll() {
             var prayerStatusData = JSON.parse(localStorage.getItem('prayerStatusData')) || [];
 
@@ -275,10 +275,14 @@
 
         // Function to toggle the visibility of the table
         function toggleTable() {
-            var prayerTable = document.getElementById('prayerTable');
+            var prayerTable = document.getElementById('prayerTable');show_all_btn
+            var show_all_btn = document.getElementById('show_all_btn');
             var display = prayerTable.style.display;
             if ((display === 'none')) {
-                showAll();
+                show_all_btn.textContent = 'Hide All';
+                showAll(); 
+            } else {
+                show_all_btn.textContent = 'Show All';
             }
             prayerTable.style.display = (display === 'none') ? 'table' : 'none';
         }
